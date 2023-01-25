@@ -49,8 +49,6 @@ describe("Gilded Rose", () => {
 
     });
 
-
-
     describe("Backstage passes to a TAFKAL80ETC concert", () => {
 
         it("should increase in quality by 3", () => {
@@ -147,7 +145,6 @@ describe("Gilded Rose", () => {
         it("should not increase in quality, when quality is 50", () => {
             const gildedRose = new Shop([
                 new Item("Aged Brie", 0, 50)
-
             ]);
 
             const items = gildedRose.updateQuality();
@@ -156,5 +153,19 @@ describe("Gilded Rose", () => {
             expect(items[0].quality).toEqual(50);
         });
     });
+
+    describe("Sulfuras", () => {
+        it("should not change the quality", () => {
+            const gildedRose = new Shop([
+                new Item("Sulfuras, Hand of Ragnaros", 0, 80)
+            ]);
+
+            const items = gildedRose.updateQuality();
+
+            expect(items[0].name).toEqual("Sulfuras, Hand of Ragnaros");
+            expect(items[0].quality).toEqual(80);
+            expect(items[0].sellIn).toEqual(0);
+        });
+    })
 
 });
