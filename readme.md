@@ -9,3 +9,7 @@ Run fixture:
 Run tests:
 
     npm run test
+
+
+Coverage:
+    `npm run test -- --coverage --watchAll=false`
